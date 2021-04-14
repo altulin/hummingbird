@@ -1,0 +1,152 @@
+.modal-request
+  background: radial-gradient(50% 50% at 50% 50%, rgba(248, 249, 252, 0) 0%, #F8F9FC 100%)
+  // background-image: url(/img/modal-bg.png)
+  // background-repeat: no-repeat
+  // background-position: center bottom
+  // background-size: contain
+
+  background-color: #fff
+
+  &__wrap
+    background-image: url(/img/modal-bg.png)
+    background-repeat: no-repeat
+    background-position: 40% bottom
+    background-size: auto 88%
+
+  &__inner
+    padding-top: 80px
+    display: flex
+    justify-content: space-between
+    background: radial-gradient(50% 50% at 50% 50%, rgba(248, 249, 252, 0) 0%, #F8F9FC 100%)
+    // background-image: url(/img/modal-bg.png)
+    // background-repeat: no-repeat
+    // background-position: center bottom
+    // background-size: contain
+
+  &__content
+
+  &__list
+    max-width: 282px
+
+  &__item
+    padding-left: 36px
+    position: relative
+
+    &::after
+      content: ""
+      width: 16px
+      height: 16px
+      background-image: url(/img/round.png)
+      background-size: contain
+      position: absolute
+      left: 0
+      top: 1px
+
+    & + li
+      margin-top: 50px
+
+  &__text
+    color: #6D6D6D
+
+  &__form
+
+  &__title
+    font-weight: 400
+    font-size: rem(40)
+    text-transform: uppercase
+    max-width: 385px
+    margin-bottom: 60px
+
+  & a.close-modal
+    background-image: url(/img/svg/modal-close.svg)
+    top: 35px
+    right: 35px
+    width: 20px
+    height: 20px
+
+.modal
+  max-width: none
+  width: 100%
+  min-height: 100%
+  position: absolute
+  left: 0
+  top: 0
+  border-radius: 0
+  z-index: 5
+  padding-left: 0
+  padding-right: 0
+
+.form
+  max-width: 412px
+  background: #FFFFFF
+  box-shadow: 5px 5px 20px rgba(212, 226, 230, 0.5)
+  border-radius: 10px
+  padding: 40px 40px 51px 40px
+  flex-grow: 1
+
+  &__field
+    margin-bottom: 40px
+
+  &__legend
+    font-size: 24px
+    text-transform: uppercase
+    color: #353535
+    max-width: 290px
+    margin-bottom: 40px
+
+  &__label
+    margin-bottom: 10px
+
+  &__input
+    background: #FBFCFD
+    border: 1px solid #E6E6EA
+    border-radius: 4px
+    padding: 24px 20px
+    color: #8D8D93
+
+    &::placeholder
+      color: #8D8D93
+
+  &__block
+    display: flex
+    flex-direction: column
+
+    & + .form__block
+      margin-top: 20px
+
+  &__btn
+    margin-bottom: 20px
+    width: 100%
+    background: linear-gradient(90deg, #B7DEF2 0%, #D3E9ED 100%)
+    cursor: pointer
+    border: none
+    padding-top: 27px
+    padding-bottom: 27px
+
+  &__consent
+    font-size: 12px
+    line-height: 16px
+    text-align: center
+    margin: 0 auto
+    color: #7C859D
+
+.text-forum
+
+.size-2
+
+.size-3
+
+.btn-1
+
+.size-0
+
+.consent
+
+  &__link
+    color: #7C859D
+
+.blocker
+  padding: 0
+
+  &:before
+    content: none

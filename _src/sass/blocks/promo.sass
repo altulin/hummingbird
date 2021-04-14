@@ -1,0 +1,77 @@
+.promo
+  position: relative
+  background-color: #fff
+
+  &::after
+    content: ""
+    position: absolute
+    width: 100%
+    height: 187px
+    background-image: linear-gradient(180deg, rgba(248, 249, 252, 0) 0%, #F8F9FC 100%)
+    bottom: 0
+    left: 0
+
+  // &::before
+  //   content: ""
+  //   position: absolute
+  //   width: 100%
+  //   height: 100%
+  //   background-color: #F9F9F9
+  //   bottom: 0
+  //   left: 0
+
+  &__inner
+    padding-top: 194px
+    padding-bottom: 150px
+    position: relative
+
+  &__content
+    max-width: 570px
+    position: relative
+    z-index: 1
+
+  &__title
+    margin-bottom: 30px
+
+  &__text
+    color: #6D6D6D
+    margin-bottom: 60px
+    max-width: 354px
+
+  &__picture
+    position: absolute
+    right: 0
+    bottom: 0
+    width: 670px
+    // z-index: -1
+
+  &__img-wrap
+    width: 100%
+    padding-top: 91%
+    position: relative
+
+  &__img
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+.title
+  font-size: rem(50)
+  text-transform: uppercase
+  color: #353535
+  font-weight: 40
+
+.text-forum
+  +font(Forum)
+
+.btn-2
+  display: inline-block
+  background: linear-gradient(90deg, #B7DEF2 0%, #D3E9ED 100%)
+  border-radius: 1000px
+  font-weight: 600
+  font-size: rem(14)
+  padding: 27px 50px
+  color: #484D55
+  text-transform: uppercase

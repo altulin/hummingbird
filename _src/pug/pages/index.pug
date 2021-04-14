@@ -1,0 +1,23 @@
+extends ../templates/_main.pug
+include ../helpers/mixins.pug
+
+
+
+
+
+
+block content
+
+  section.promo
+    .promo__inner.container
+
+      .promo__content 
+        h1.promo__title.title.text-forum Пошив корпоративной одежды под ключ в&nbsp;Иркутске
+        p.promo__text.size-4 Разрабатываем и отшиваем все&nbsp;виды корпоративной одежды под любые задачи бизнеса
+        a.promo__link.btn-2(href="#") посмотреть услуги  
+
+      .promo__picture
+        figure.promo__img-wrap 
+          +img-retina(`promo-bg`, `png`, `Пошив корпоративной одежды`, `promo__img`, `670`, `616`)
+
+  
