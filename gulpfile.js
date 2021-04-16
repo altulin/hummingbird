@@ -1,4 +1,5 @@
-const projectFolder = `first-auto`; //Папка продакшн
+const projectName = `colibri` // название проекта
+const projectFolder = `${projectName}_dist`; //Папка продакшн
 const sourceFolder = `_src`;  // Папка разработки
 
 // js
@@ -14,12 +15,13 @@ const mmenu_js = `node_modules/mmenu-light/dist/mmenu-light.js`;
 // const jquery_fajax_js = `node_modules/jquery.fajax/dist/jquery.fajax.min.js`;
 // const jquery_formstyler_js = `node_modules/jquery-form-styler/dist/jquery.formstyler.min.js`;
 const slick_js = `node_modules/slick-carousel/slick/slick.min.js`;
+const inputmask_js = `node_modules/inputmask/dist/jquery.inputmask.min.js`;
 
 // css
 const sourceCss = `${sourceFolder}/sass/style.sass` // файл для разработки Пользовательские стили
 // const projectCss = `style.css`; // файл в продакшн
 const projectCssMin = `style.min.css`; // файл в продакшн минифицированный
-// const projectCss = `style.css`; // файл в продакшн минифицированный
+const projectCss = `style.css`; // файл в продакшн минифицированный
 
 // установленные библиотеки css
 const normalize_css = `node_modules/normalize.css/normalize.css`;
@@ -47,7 +49,7 @@ const path = {
   },
   src: {
     html: `${sourceFolder}/*.html`, //
-    css: `${sourceFolder}/css/style.min.css`, //
+    css: `${sourceFolder}/css/style.css`, //
     min_js: `${sourceFolder}/js/script.min.js`, //
     js: `${sourceFolder}/js/script.js`, //
     img: `${sourceFolder}/img/**/*`, //
@@ -56,6 +58,7 @@ const path = {
     libs_js: `${sourceFolder}/js/libs/**/*.js`,//
     libs_css: `${sourceFolder}/css/libs/**/*`,//
     ico: `${sourceFolder}/*.ico`,
+    fav: `${sourceFolder}/fav/**/*`,
     files: `${sourceFolder}/files/**/*`
   },
   watch: {
@@ -104,6 +107,7 @@ function scripts() {
   return src([ // Берём файлы из источников
     jquery_js,
     jquery_modal_js,
+    inputmask_js,
     // swiper_js,
     mmenu_js,
     // jquery_fajax_js,
@@ -116,10 +120,10 @@ function scripts() {
     .pipe(concat(projectJs)) // Конкатенируем в один файл
     // .pipe(sourcemaps.write()) //добавляем карту
     .pipe(dest(`${sourceFolder}/js`)) // Выгружаем готовый файл не мин в папку назначения
-    // .pipe(concat(projectJsMin))
-    // .pipe(uglify()) // Сжимаем JavaScript
+    .pipe(concat(projectJsMin))
+    .pipe(uglify()) // Сжимаем JavaScript
     // .pipe(sourcemaps.write()) //добавляем карту
-    // .pipe(dest(`${sourceFolder}/js`)) // Выгружаем готовый файл мин в папку назначения
+    .pipe(dest(`${sourceFolder}/js`)) // Выгружаем готовый файл мин в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 };
 
@@ -139,9 +143,9 @@ function styles() {
   ])
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(concat(projectCssMin)) // Конкатенируем в файл
+    .pipe(concat(projectCss)) // Конкатенируем в файл
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-    .pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+    // .pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
     .pipe(sourcemaps.write(".")) //добавляем карту
     .pipe(dest(`${sourceFolder}/css/`)) // Выгрузим результат в папку
     .pipe(browserSync.stream()) // Сделаем инъекцию в браузер
@@ -230,10 +234,7 @@ function buildcopy() {
     path.src.img,
     path.src.html,
     path.src.ico,
-    `${sourceFolder}/*.png`,
-    `${sourceFolder}/*.xml`,
-    `${sourceFolder}/*.svg`,
-    `${sourceFolder}/site.webmanifest`,
+    path.src.fav,
     path.src.files
   ], { base: `${sourceFolder}` }) // Параметр "base" сохраняет структуру проекта при копировании
     .pipe(dest(`${projectFolder}/`)) // Выгружаем в папку с финальной сборкой

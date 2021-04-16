@@ -1,20 +1,5 @@
 $(function () {
 
-
-
-
-
-  // tabs
-  $('.company__main-tabs').responsiveTabs({
-    startCollapsed: 'accordion'
-  });
-
-
-
-
-
-
-
   //mmenu
   if ($("#header-nav").length > 0) {
     const menu = new MmenuLight(
@@ -33,26 +18,17 @@ $(function () {
     $(`.header__link-menu--open`).on(`click`, (e) => {
       e.preventDefault();
       drawer.open();
-      // $(`.header__link-menu--open`).addClass(`hidden`);
-      // $(`.header__link-menu--close`).removeClass(`hidden`);
     });
 
     $(`.header__link-menu--close`).on(`click`, (e) => {
       e.preventDefault();
       drawer.close();
-      // $(`.header__link-menu--close`).addClass(`hidden`);
-      // $(`.header__link-menu--open`).removeClass(`hidden`);
-    });
-
-    $(`.mm-ocd__backdrop`).on(`click`, () => {
-      // $(`.header__link-menu--close`).addClass(`hidden`);
-      // $(`.header__link-menu--open`).removeClass(`hidden`);
     });
   }
 
 
   //валидация полей форм
-  $(`.modal-anonymous__form`).on(`submit`, (e) => {
+  $(`.modal-request__form`).on(`submit`, (e) => {
     checkValidation(e);
   });
 
@@ -105,6 +81,9 @@ $(function () {
       $(item).removeClass(`not-valid`);
     })
   };
+
+  // mask input tel
+  $(`#phone`).inputmask({ "mask": "+7 (999) 999-99-99" });
 
 
 });

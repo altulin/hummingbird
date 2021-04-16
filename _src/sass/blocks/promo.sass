@@ -1,6 +1,7 @@
 .promo
   position: relative
-  background-color: #fff
+  // background-color: #fff
+  // background-color: #F9F9F9
 
   &::after
     content: ""
@@ -11,24 +12,24 @@
     bottom: 0
     left: 0
 
-  // &::before
-  //   content: ""
-  //   position: absolute
-  //   width: 100%
-  //   height: 100%
-  //   background-color: #F9F9F9
-  //   bottom: 0
-  //   left: 0
-
   &__inner
     padding-top: 194px
     padding-bottom: 150px
     position: relative
 
+    +mw(1000)
+      display: flex
+      flex-direction: column
+      padding-bottom: 0
+
   &__content
     max-width: 570px
     position: relative
     z-index: 1
+
+    +mw(1000)
+      max-width: none
+      margin-bottom: 60px
 
   &__title
     margin-bottom: 30px
@@ -38,12 +39,21 @@
     margin-bottom: 60px
     max-width: 354px
 
+    +mw(600)
+      max-width: none
+
   &__picture
     position: absolute
     right: 0
     bottom: 0
     width: 670px
-    // z-index: -1
+
+    +mw(1000)
+      position: static
+      align-self: center
+
+    +mw(768)
+      width: 100%
 
   &__img-wrap
     width: 100%
@@ -57,21 +67,19 @@
     width: 100%
     height: 100%
 
+  &__link
+
+    +mw(600)
+      display: block
+
 .title
   font-size: rem(50)
   text-transform: uppercase
   color: #353535
   font-weight: 40
 
+  +mw(600)
+    font-size: rem(30)
+
 .text-forum
   +font(Forum)
-
-.btn-2
-  display: inline-block
-  background: linear-gradient(90deg, #B7DEF2 0%, #D3E9ED 100%)
-  border-radius: 1000px
-  font-weight: 600
-  font-size: rem(14)
-  padding: 27px 50px
-  color: #484D55
-  text-transform: uppercase

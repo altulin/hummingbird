@@ -8,16 +8,37 @@ include ../helpers/mixins.pug
 
 block content
 
-  section.promo
+  section.promo.mb140
     .promo__inner.container
 
       .promo__content 
         h1.promo__title.title.text-forum Пошив корпоративной одежды под ключ в&nbsp;Иркутске
         p.promo__text.size-4 Разрабатываем и отшиваем все&nbsp;виды корпоративной одежды под любые задачи бизнеса
-        a.promo__link.btn-2(href="#") посмотреть услуги  
+        a.promo__link.btn-2(href="#services") посмотреть услуги  
 
       .promo__picture
         figure.promo__img-wrap 
           +img-retina(`promo-bg`, `png`, `Пошив корпоративной одежды`, `promo__img`, `670`, `616`)
+
+  section.services.mb140 
+    .services__inner.container#services 
+      .services__column-left.services-promo
+        h2.services__title.title.text-forum Услуги
+        p Разрабатываем и отшиваем все виды корпоративной одежды под любые задачи бизнеса
+        a.services-promo__link.btn-2(href="#modal-request" rel="modal:open") ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+        figure.services-promo__img-wrap 
+          +img-retina(`bust`, `png`, `все виды корпоративной одежды`, `services-promo__img`, `365`, `323`)
+
+      .services__column-right.services-type
+        ul.services-type__list
+          each item, i in services_type
+            li.services-type__item 
+              figure.services-type__img-wrap 
+                +img(`type-${i+1}`, `png`, `${item[0]}`, `services-type__img`, `210`, `140`)
+
+              .services-type__box 
+                h3= `${item[0]}`
+                p= `${item[1]}`
+
 
   
