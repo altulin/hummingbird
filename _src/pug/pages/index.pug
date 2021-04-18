@@ -6,39 +6,78 @@ include ../helpers/mixins.pug
 
 
 
+
 block content
 
   section.promo.mb140
     .promo__inner.container
 
-      .promo__content 
+      .promo__content
         h1.promo__title.title.text-forum Пошив корпоративной одежды под ключ в&nbsp;Иркутске
         p.promo__text.size-4 Разрабатываем и отшиваем все&nbsp;виды корпоративной одежды под любые задачи бизнеса
-        a.promo__link.btn-2(href="#services") посмотреть услуги  
+        a.promo__link.btn-2(href="#services") посмотреть услуги
 
       .promo__picture
-        figure.promo__img-wrap 
+        figure.promo__img-wrap
           +img-retina(`promo-bg`, `png`, `Пошив корпоративной одежды`, `promo__img`, `670`, `616`)
 
-  section.services.mb140 
-    .services__inner.container#services 
+  section.services.mb140
+    .services__inner.container#services
       .services__column-left.services-promo
         h2.services__title.title.text-forum Услуги
         p Разрабатываем и отшиваем все виды корпоративной одежды под любые задачи бизнеса
         a.services-promo__link.btn-2(href="#modal-request" rel="modal:open") ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
-        figure.services-promo__img-wrap 
+        figure.services-promo__img-wrap
           +img-retina(`bust`, `png`, `все виды корпоративной одежды`, `services-promo__img`, `365`, `323`)
 
       .services__column-right.services-type
         ul.services-type__list
           each item, i in services_type
-            li.services-type__item 
-              figure.services-type__img-wrap 
+            li.services-type__item
+              figure.services-type__img-wrap
                 +img(`type-${i+1}`, `png`, `${item[0]}`, `services-type__img`, `210`, `140`)
 
-              .services-type__box 
+              .services-type__box
                 h3= `${item[0]}`
                 p= `${item[1]}`
 
+  section.scenario
+    .scenario__inner.container
+      h2.scenario__title.title.text-forum Как именно мы<br> ”приоденем” ваш бизнес
+      ul.scenario__list
+        each item, i in scenario_list
+          li.scenario__item
+            .scenario__box
+              figure.scenario__img-wrap
+                +img(`scenario-${i+1}`, `jpg`, `${item[0]}`, `scenario__img`, `250`, `250`)
 
-  
+            .scenario__block
+              p.scenario__num= `${i+1}`
+              .scenario__content
+                h3= `${item[0]}`
+                p= `${item[1]}`
+
+                if `${item[2]}` !== `none`
+                  p= `${item[2]}`
+
+      a.scenario__link.btn-1.hover-opacity(href="#") Посмотреть весь процесс
+
+  section.customers
+    customers__inner.container
+      h2.customers__title.title.text-forum Наши заказчики – представители крупных компаний и малого бизнеса
+      p.customers__text Гордимся каждым выполненным нами проектом
+
+      ul.customers__list
+        -let n = 0
+        while n < 4
+          -n++
+          li.customers__item.customers-item
+          .customers-item__picture
+            figure.customers-item__img-wrap
+              //- +img(`scenario-${i+1}`, `jpg`, `${item[0]}`, `scenario__img`, `250`, `250`)
+
+          .customers-item__block
+            h3.customers-item__title.text-forum Полная упаковка текстилем ресторана "Сказка”
+            p.customers-item__text
+            a.customers-item__link(href="case.html") подробнее о проекте
+              +svg_my(`arr`,`customers-item__link-icon`)
