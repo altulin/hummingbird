@@ -1,23 +1,28 @@
-module.exports.scripts = () => {
-  return src([ // Берём файлы из источников
-    jquery_js,
-    jquery_modal_js,
-    inputmask_js,
-    // swiper_js,
-    mmenu_js,
-    // jquery_fajax_js,
-    // jquery_formstyler_js,
-    slick_js,
-    path.src.libs_js, // библиотеки из папки libs
-    sourceJs, // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
-  ])
+const pluginsPath = require(`${__dirname}/plugins.js`).plaginsObject;
+const variablesPath = require(`${__dirname}/variables.js`);
+const getPlugunsList = require(`${__dirname}/util.js`).getPlugunsList;
+
+const src = pluginsPath.gulp.src;
+const dest = pluginsPath.gulp.dest;
+const sourcemaps = pluginsPath.sourcemaps;
+const concat = pluginsPath.concat;
+const uglify = pluginsPath.uglify;
+const browserSync = pluginsPath.browserSync;
+
+const plugunsJs = variablesPath.plugunsJs;
+const plugunsJsUsed = variablesPath.plugunsJsUsed;
+const path = variablesPath.path;
+
+
+module.exports.getScriptFile = () => {
+  return src(getPlugunsList(plugunsJs, plugunsJsUsed))
     .pipe(sourcemaps.init())
-    .pipe(concat(projectJs)) // Конкатенируем в один файл
+    .pipe(concat(path.src.srcJsFile)) // Конкатенируем в один файл
     // .pipe(sourcemaps.write()) //добавляем карту
-    .pipe(dest(`${sourceFolder}/js`)) // Выгружаем готовый файл не мин в папку назначения
-    .pipe(concat(projectJsMin))
+    .pipe(dest(path.src.srcJsFolder)) // Выгружаем готовый файл не мин в папку назначения
+    .pipe(concat(path.src.srcJsMinFile))
     .pipe(uglify()) // Сжимаем JavaScript
     // .pipe(sourcemaps.write()) //добавляем карту
-    .pipe(dest(`${sourceFolder}/js`)) // Выгружаем готовый файл мин в папку назначения
+    .pipe(dest(path.src.srcJsFolder)) // Выгружаем готовый файл мин в папку назначения
     .pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 };
