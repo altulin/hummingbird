@@ -1,0 +1,130 @@
+.customers
+  padding-bottom: 100px
+  margin-bottom: 100px
+  padding-top: 100px
+  background-color: #F9FAFC
+
+  &__title
+    margin-bottom: 20px
+
+  &__text
+    color: #6D6D6D
+    margin-bottom: 80px
+
+  &__list
+    margin-bottom: 100px
+
+  &__item
+    display: flex
+    justify-content: space-between
+
+    +mw(768)
+      flex-direction: column
+
+    & + li
+      margin-top: 80px
+
+      +mw(768)
+        margin-top: 60px
+
+  &__glightbox
+    max-width: 50%
+    width: 630px
+    flex-shrink: 0
+
+    +mw(768)
+      margin-bottom: 30px
+      max-width: none
+      width: auto
+
+  &__btn
+    background-color: transparent
+    display: block
+    margin-left: auto
+    margin-right: auto
+    cursor: pointer
+
+.customers-item
+
+  &__block
+    max-width: 525px
+    padding-bottom: 28px
+    display: flex
+    flex-direction: column
+    margin-left: 20px
+
+    +mw(768)
+      margin-left: 0
+      max-width: none
+
+    & p
+      color: #6D6D6D
+      font-size: rem(18)
+      max-width: 380px
+      margin-bottom: 20px
+
+      +mw(768)
+        margin-bottom: 40px
+        max-width: none
+
+  &__title-link
+    margin-bottom: 20px
+
+    & h3
+      +font(Forum)
+      font-weight: normal
+      font-size: rem(32)
+      text-transform: uppercase
+      color: #353535
+
+      +mw(768)
+        font-size: rem(26)
+
+  &__link
+    display: flex
+    align-items: center
+    font-size: rem(18)
+    color: #1F1F22
+    margin-top: auto
+
+  &__link-icon
+    width: 37px
+    height: 6px
+    stroke: #7FC0CF
+    margin-left: 20px
+
+.glight-box
+
+  &__link
+    display: block
+    width: 100%
+    padding-top: 63%
+    position: relative
+    background-color: #F8F9FC
+    border-radius: 10px
+
+    &--video::after
+      position: absolute
+      content: ""
+      width: 92px
+      height: 92px
+      background-color: #fff
+      border-radius: 50%
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      background-image: url(/img/svg/you.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 20px 23px
+
+  &__img
+    position: absolute
+    width: calc(100% - 20px)
+    height: calc(100% - 20px)
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid
+  display: none

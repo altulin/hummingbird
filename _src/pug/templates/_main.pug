@@ -1,22 +1,25 @@
-include ../modules/_head
+doctype html
+html(lang="ru")
 
-body.page-body
-  include ../helpers/arrays
+  include ../modules/_head
 
-  block link-active
-  include ../modules/_header
+  body.page-body
+    include ../helpers/arrays
 
-  
+    block link-active
+    include ../modules/_header
 
     
-  main.page-main
-    block content
 
-  include ../modules/_footer
+      
+    main.page-main
+      block content
 
-  
+    include ../modules/_footer
+
+    
 
 
-  include ../modules/_modal-request
-  include ../modules/_modal-thanks
-  include ../modules/_scripts
+    include ../modules/_modal-request
+    include ../modules/_modal-thanks
+    include ../modules/_scripts

@@ -1,7 +1,8 @@
 .scenario
   margin-bottom: 180px
 
-  &__inner
+  +mw(768)
+    margin-bottom: 80px
 
   &__title
     margin-bottom: 90px
@@ -32,9 +33,12 @@
         background-repeat: no-repeat
         width: 112px
         height: 256px
-        left: 274px
+        left: 365px
         top: -184px
         z-index: -1
+
+        +mw(1270)
+          left: calc((100vw / 2) - 272px)
 
         +mw(1000)
           content: none

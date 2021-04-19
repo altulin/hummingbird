@@ -63,21 +63,73 @@ block content
       a.scenario__link.btn-1.hover-opacity(href="#") Посмотреть весь процесс
 
   section.customers
-    customers__inner.container
+    .customers__inner.container
       h2.customers__title.title.text-forum Наши заказчики – представители крупных компаний и малого бизнеса
-      p.customers__text Гордимся каждым выполненным нами проектом
+      p.customers__text.size-4 Гордимся каждым выполненным нами проектом
 
       ul.customers__list
         -let n = 0
         while n < 4
           -n++
           li.customers__item.customers-item
-          .customers-item__picture
-            figure.customers-item__img-wrap
-              //- +img(`scenario-${i+1}`, `jpg`, `${item[0]}`, `scenario__img`, `250`, `250`)
+            .customers__glightbox.glight-box
+              if n < 3
+                a.glight-box__link.glightbox(href="/img/gall@2x.jpg" data-gallery="gallery")
+                  +img-retina(`gall`, `jpg`, `Наши заказчики`, `glight-box__img`, `630`, `400`)
 
-          .customers-item__block
-            h3.customers-item__title.text-forum Полная упаковка текстилем ресторана "Сказка”
-            p.customers-item__text
-            a.customers-item__link(href="case.html") подробнее о проекте
-              +svg_my(`arr`,`customers-item__link-icon`)
+              else 
+                a.glight-box__link.glight-box__link--video.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery="gallery")
+                  +img-retina(`gall`, `jpg`, `Наши заказчики`, `glight-box__img`, `630`, `400`)
+
+              
+
+
+            
+              
+
+            .customers-item__block
+              a.customers-item__title-link.hover-opacity(href="case.html") 
+                h3 Полная упаковка текстилем ресторана "Сказка”
+              p Разрабатываем и отшиваем все виды корпоративной одежды под любые задачи ваши бизнеса
+              a.customers-item__link.hover-opacity(href="case.html") подробнее о проекте
+                +svg_my(`arr`,`customers-item__link-icon`)
+
+      button.customers__btn.btn-1.hover-opacity(href="#") Посмотреть все проекты
+
+  section.confidence
+    .confidence__inner.container     
+      h2.confidence__title.title.text-forum Колибри - это уверенность
+
+      p.confidence__text.size-4 Вот уже 25 лет, день за днем, мы думаем, ищем, анализируем, изобретаем, рискуем для того, чтобы сделать лучшее предложение.
+
+      ul.confidence__list 
+        li.confidence__item.confidence__item--large 
+          figure.confidence__img-wrap.confidence__img-wrap--large
+            +img-retina(`confidence-1`, `jpg`, `Колибри - это уверенность`, `confidence__img`, `852`, `480`)
+
+        li.confidence__item.confidence__item--middle 
+          figure.confidence__img-wrap.confidence__img-wrap--middle
+            +img-retina(`confidence-2`, `jpg`, `Колибри - это уверенность`, `confidence__img`, `727`, `408`)
+
+        li.confidence__item.confidence__item--small 
+          figure.confidence__img-wrap.confidence__img-wrap--small
+            +img-retina(`confidence-3`, `jpg`, `Колибри - это уверенность`, `confidence__img`, `452`, `409`)
+
+  section.team
+    .team__inner.container 
+      h2.team__title.title.text-forum Команда, <br>которая “приоденет” <br>ваш бизнес
+
+      p.team__text Вот уже 25 лет, день за днем, мы думаем, ищем, анализируем, изобретаем, рискуем для того, чтобы сделать лучшее предложение.
+
+  section.result
+    .result__inner.container 
+      .result__top 
+        h2.result__title.title.text-forum Работаем <br>на результат 
+        p.result__text Посмотрите отзывы компаний, которым мы помогли ”приодеть” бизнес
+      ul.result__list   
+        - n=0
+        while n < 6
+          -n++
+          li.result__item
+            a.result__link.result.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery="gallery")
+                    +img-retina(`result`, `jpg`, `Наши заказчики`, `result__img`, `292`, `520`)

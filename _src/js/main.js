@@ -85,5 +85,20 @@ $(function () {
   // mask input tel
   $(`#phone`).inputmask({ "mask": "+7 (999) 999-99-99" });
 
+  // GLightbox
+  const lightbox = GLightbox({
+    touchNavigation: true,
+    // loop: true,
+    autoplayVideos: true
+  });
+
+  if ($(window).width() < 768) {
+    $('.confidence__list').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+    });
+  }
+
 
 });

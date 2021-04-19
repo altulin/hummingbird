@@ -16,6 +16,7 @@ const mmenu_js = `node_modules/mmenu-light/dist/mmenu-light.js`;
 // const jquery_formstyler_js = `node_modules/jquery-form-styler/dist/jquery.formstyler.min.js`;
 const slick_js = `node_modules/slick-carousel/slick/slick.min.js`;
 const inputmask_js = `node_modules/inputmask/dist/jquery.inputmask.min.js`;
+const glightbox_js = `node_modules/glightbox/dist/js/glightbox.min.js`;
 
 // css
 const sourceCss = `${sourceFolder}/sass/style.sass` // файл для разработки Пользовательские стили
@@ -33,6 +34,7 @@ const mmenu_css = `node_modules/mmenu-light/dist/mmenu-light.css`;
 
 const slick_css = `node_modules/slick-carousel/slick/slick.css`;
 // const slick_theme_css = `node_modules/slick-carousel/slick/slick-theme.css`; не всегда нужно
+const glightbox_css = `node_modules/glightbox/dist/css/glightbox.css`;
 
 // img
 // const sourceImg = `${sourceFolder}/_img/**/*`;//папка для разработки
@@ -89,7 +91,8 @@ const { src, dest, parallel, watch, series } = require('gulp'),
   replace = require('gulp-replace'),
   svgstore = require('gulp-svgstore'),
   rename = require("gulp-rename"),
-  webp = require('gulp-webp')
+  webp = require('gulp-webp'),
+  prettify = require('gulp-html-prettify')
 
 
 
@@ -110,6 +113,7 @@ function scripts() {
     inputmask_js,
     // swiper_js,
     mmenu_js,
+    glightbox_js,
     // jquery_fajax_js,
     // jquery_formstyler_js,
     slick_js,
@@ -133,6 +137,7 @@ function styles() {
     jquery_modal_css,
     // swiper_css,
     mmenu_css,
+    glightbox_css,
     // jquery_formstyler_css,
     // jquery_formstyler_theme_css,
     slick_css,
@@ -270,6 +275,14 @@ function transformPug() {
     .pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
+function htmlprettify() {
+
+
+  return src(path.src.html)
+    .pipe(prettify({ indent_char: '', indent_size: 2 }))
+    .pipe(dest(`${sourceFolder}`))
+}
+
 
 
 exports.browsersync = browsersync;
@@ -287,8 +300,11 @@ exports.replace = replace;
 // exports.svgstore = svgstore;
 exports.rename = rename;
 exports.createWebp = createWebp;
+exports.htmlprettify = htmlprettify;
 
 
-exports.default = parallel(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, browsersync, startwatch);
+
+
+exports.default = parallel(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, browsersync, htmlprettify, startwatch);
 // exports.build = series(clean, styles, scripts, images, buildcopy);
-exports.build = series(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, buildcopy);
+exports.build = series(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, htmlprettify, buildcopy);
