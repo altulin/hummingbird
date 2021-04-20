@@ -1,11 +1,8 @@
 extends ../templates/_main.pug
 include ../helpers/mixins.pug
 
-
-
-
-
-
+block link-active
+  - header = true
 
 block content
 
@@ -125,11 +122,59 @@ block content
     .result__inner.container 
       .result__top 
         h2.result__title.title.text-forum Работаем <br>на результат 
-        p.result__text Посмотрите отзывы компаний, которым мы помогли ”приодеть” бизнес
+        p.result__text.size-4 Посмотрите отзывы компаний, <br>которым мы помогли ”приодеть” бизнес
       ul.result__list   
         - n=0
         while n < 6
           -n++
           li.result__item
-            a.result__link.result.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery="gallery")
+            a.result__link.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery=`gallery-${n}`)
                     +img-retina(`result`, `jpg`, `Наши заказчики`, `result__img`, `292`, `520`)
+
+
+  section.faq 
+    .faq__inner.container
+      .faq__col-left 
+        h2.faq__title.title.text-forum.tablet-hidden У нас часто спрашивают
+        p.faq__text.size-4 Задайте нам вопрос онлайн, в любом удобном для вас мессенжере 
+        figure.faq__img-wrap  
+          ul.faq__social.socials  
+            li.socials__item  
+              a.socials__link.socials__link-vb(href="https://viber.click/79501339299" aria-label="мы в viber" rel="noopener" target="_blank")
+            li.socials__item  
+              a.socials__link.socials__link-wp(href="https://api.whatsapp.com/send/?phone=79501339299&text&app_absent=0" aria-label="мы в watsapp" rel="noopener" target="_blank")
+            li.socials__item  
+              a.socials__link.socials__link-tg(href="https://tttttt.me/rus_alex" aria-label="мы в telegramm" rel="noopener" target="_blank")
+
+      .faq__col-right
+        h2.faq__title.title.text-forum.tablet-visibility У нас часто спрашивают
+        .accordion__list(data-accordion-group)
+          -n=0
+          while n<3
+            -n++
+            .accordion__item.accordion(data-accordion) 
+              .accordion__control(data-control) 
+                h3 Можете ли вы произвести партию <br>по моему образцу?
+              .accordion__content(data-content) 
+                p Да, это возможно. Мы строим лекала как по эталону-образцу, так и по фото, делаем градацию размерной сетки по вашим требованиям и запускаем партию в производство.
+
+
+  section.contacts
+    .contacts__inner.container 
+      .contacts__top 
+        h2.contacts__title.title.text-forum Контакты
+        
+        .contacts__phone 
+          p.contacts__term.size-3 Телефон:
+          p.contacts__data.size-3 8 (800) 600-52-65
+        
+        .contacts__phone 
+          p.contacts__term.size-3 Адрес:
+          p.contacts__data.size-3 ул. Тимирязева, 29, Иркутск (этаж 1-2)
+        
+        a.contacts__link.btn-1(href="#modal-request" rel="modal:open") ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+      
+      .contacts__map#map
+
+
+      

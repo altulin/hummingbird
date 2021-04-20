@@ -305,6 +305,7 @@ exports.htmlprettify = htmlprettify;
 
 
 
-exports.default = parallel(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, browsersync, htmlprettify, startwatch);
+exports.default = parallel(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, browsersync, transformPug, htmlprettify, startwatch);
+// exports.default = parallel(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, browsersync, htmlprettify, startwatch);
 // exports.build = series(clean, styles, scripts, images, buildcopy);
 exports.build = series(cleanImg, styles, scripts, images, imagesSvg, createSprite, createWebp, transformPug, htmlprettify, buildcopy);

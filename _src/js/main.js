@@ -92,6 +92,8 @@ $(function () {
     autoplayVideos: true
   });
 
+
+  // confidence slider
   if ($(window).width() < 768) {
     $('.confidence__list').slick({
       infinite: true,
@@ -100,5 +102,81 @@ $(function () {
     });
   }
 
+  // result slider
+  $('.result__list').slick({
+    infinite: true,
+    speed: 600,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 3,
+        }
+      }
+    ]
 
+
+  });
+
+
+
+
+
+
+
+  // $('.result__list').on('swipe', function (event, slick, direction) {
+  //   console.log(direction);
+  //   // left
+  // });
+
+  // $('.result__list').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+  // console.log(nextSlide);
+  // });
+  // $('.result__list').on('swipe', function (event, slick, currentSlide, nextSlide) {
+  //   // $(`.result__link`).addClass(`result__link--eventnone`)
+  //   console.log(`fdfgd`)
+  // });
+  // $(`.result__link`).on(`mousedown`, (e) => {
+  //   $(`.result__link`).addClass(`result__link--eventnone`)
+  //   // console.log(e.target)
+  // })
+
+  // $(`.result__link`).on(`click`, (e) => {
+  //   $(`.result__link`).removeClass(`result__link--eventnone`)
+  //   // console.log(e.target)
+  // })
+
+  $('.accordion__item').accordion({
+    "transitionSpeed": 400
+
+  });
+
+  // map
+
+  let myMap;
+  const init = () => {
+
+    myMap = new ymaps.Map('map', {
+
+      center: [52.2825, 104.296372],
+      zoom: 17,
+      controls: []
+    }, {
+      searchControlProvider: 'yandex#search'
+    });
+
+    const myPlacemark = new ymaps.Placemark([52.2825, 104.296372], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: '../img/svg/marker.svg',
+      iconImageSize: [48, 60],
+      iconImageOffset: [, -50]
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+    myMap.behaviors.disable('scrollZoom');
+  }
+
+  ymaps.ready(init);
 });

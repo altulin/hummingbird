@@ -7,7 +7,8 @@ html(lang="ru")
     include ../helpers/arrays
 
     block link-active
-    include ../modules/_header
+    if header 
+      include ../modules/_header
 
     
 
@@ -15,7 +16,10 @@ html(lang="ru")
     main.page-main
       block content
 
-    include ../modules/_footer
+    
+    block link-active
+    if header
+      include ../modules/_footer
 
     
 

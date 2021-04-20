@@ -1,21 +1,78 @@
 .result
+  margin-bottom: 100px
 
   &__inner
 
   &__top
     display: flex
+    align-items: flex-end
+    margin-bottom: 48px
 
   &__title
 
   &__text
+    margin-left: 10%
+    max-width: 422px
+    color: #6D6D6D
 
   &__list
 
+    & .slick-arrow
+      position: absolute
+      width: 75px
+      height: 75px
+      border-radius: 50%
+      border: 1px solid #E5D5C5
+      background-color: transparent
+      font-size: 0
+      background-image: url(/img/svg/arr-result.svg)
+      background-position: center center
+      background-size: 30px 12px
+      background-repeat: no-repeat
+      cursor: pointer
+      top: -150px
+
+    & .slick-next
+      right: 0
+      transform: rotate(180deg)
+
+    & .slick-prev
+      right: 80px
+
   &__item
+    cursor: pointer
+
+    &:focus
+      outline: none
 
   &__link
+    display: block
+    position: relative
+
+    &--eventnone
+      pointer-events: none
+
+    &::after
+      position: absolute
+      content: ""
+      width: 92px
+      height: 92px
+      background-color: #fff
+      border-radius: 50%
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      background-image: url(/img/svg/you.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 20px 23px
 
   &__img
+    border-radius: 10px
+    display: block
+
+    &:focus
+      outline: none
 
 .title
 
