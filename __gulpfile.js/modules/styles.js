@@ -1,4 +1,4 @@
-const getPlugunsList = require(`${__dirname}/util.js`).getPlugunsList;
+const util = require(`${__dirname}/util.js`).util;
 const pluginsPath = require(`${__dirname}/plugins.js`).plaginsObject;
 const variablesPath = require(`${__dirname}/variables.js`);
 
@@ -16,7 +16,7 @@ const path = variablesPath.path;
 
 
 module.exports.getStyleFile = () => {
-  return src(getPlugunsList(plugunsCss, plugunsCssUsed))
+  return src(util.getPlugunsList(plugunsCss, plugunsCssUsed))
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(concat(path.src.srcCssFile)) // Конкатенируем в файл

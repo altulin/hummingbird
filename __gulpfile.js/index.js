@@ -1,13 +1,13 @@
 const plugins = require(`./modules/plugins.js`).plaginsObject;
-
-const browsersync = require(`./modules/browsersync.js`).browsersync;
-const getScriptFile = require(`./modules/scripts.js`).getScriptFile;
-const getStyleFile = require(`./modules/styles.js`).getStyleFile;
-const makeImages = require(`./modules/images.js`).makeImages;
-const makeImagesSvg = require(`./modules/images-svg.js`).makeImagesSvg;
-const cleanImg = require(`./modules/clean.js`).cleanImg;
-const createSprite = require(`./modules/sprite.js`).createSprite;
+const util = require(`./modules/util.js`).util;
+const tasks = require(`./modules/tasks.js`).tasksObject;
 
 
-exports.default = plugins.gulp.parallel(cleanImg, makeImagesSvg, makeImages, createSprite, getStyleFile, getScriptFile, browsersync);
-exports.build = plugins.gulp.series(cleanImg)
+const defaultArray = [`cleanImg`, `makeImagesSvg`, `makeImages`, `createSprite`, `getStyleFile`, `getScriptFile`, `browsersync`];
+
+const buildArray = [`cleanImg`]
+
+exports.default = plugins.gulp.series(util.getTasks(defaultArray, tasks));
+exports.build = plugins.gulp.series(util.getTasks(buildArray, tasks))
+
+

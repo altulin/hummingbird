@@ -85,13 +85,6 @@ $(function () {
   // mask input tel
   $(`#phone`).inputmask({ "mask": "+7 (999) 999-99-99" });
 
-  // GLightbox
-  // const lightbox = GLightbox({
-  //   touchNavigation: true,
-  //   // loop: true,
-  //   autoplayVideos: true
-  // });
-
 
   // confidence slider
   if ($(window).width() < 768) {
@@ -105,19 +98,16 @@ $(function () {
   // lightbox modal-case
   const case_bottomLightbox = GLightbox({
     selector: `.case-bottom__link`,
-    // draggable: false
   });
 
   // lighybox customers__list
   const customersLightbox = GLightbox({
     selector: `.glight-box__link`,
-    // draggable: false
   });
 
   // lightbox result__list
   const resultLightbox = GLightbox({
     selector: `.result__link`,
-    // draggable: false
   });
 
   // result slider
