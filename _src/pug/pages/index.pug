@@ -78,17 +78,14 @@ block content
                 a.glight-box__link.glight-box__link--video.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery="gallery")
                   +img-retina(`gall`, `jpg`, `Наши заказчики`, `glight-box__img`, `630`, `400`)
 
-              
-
-
-            
-              
-
             .customers-item__block
-              a.customers-item__title-link.hover-opacity(href="case.html") 
-                h3 Полная упаковка текстилем ресторана "Сказка”
+              h3
+                // последний класс совпадает с id модального окна
+                a.customers-item__title-link.hover-opacity.modal-case__link-open.modal-case-fairytale(href="#modal-case") Полная упаковка текстилем ресторана "Сказка”
+                 
               p Разрабатываем и отшиваем все виды корпоративной одежды под любые задачи ваши бизнеса
-              a.customers-item__link.hover-opacity(href="case.html") подробнее о проекте
+              // последний класс совпадает с id модального окна
+              a.customers-item__link.hover-opacity.modal-case__link-open.modal-case-fairytale(href="#modal-case") подробнее о проекте
                 +svg_my(`arr`,`customers-item__link-icon`)
 
       button.customers__btn.btn-1.hover-opacity(href="#") Посмотреть все проекты
@@ -113,10 +110,40 @@ block content
             +img-retina(`confidence-3`, `jpg`, `Колибри - это уверенность`, `confidence__img`, `452`, `409`)
 
   section.team
-    .team__inner.container 
-      h2.team__title.title.text-forum Команда, <br>которая “приоденет” <br>ваш бизнес
+    .team__inner 
+      .team__top.container
+        h2.team__title.title.text-forum Команда, <br>которая “приоденет”<br> ваш бизнес
 
-      p.team__text Вот уже 25 лет, день за днем, мы думаем, ищем, анализируем, изобретаем, рискуем для того, чтобы сделать лучшее предложение.
+        p.team__text.size-4 Вот уже 25 лет, день за днем, мы думаем, ищем, анализируем, изобретаем, рискуем для того, чтобы сделать лучшее предложение.
+      .team__block-wrap.tablet-hidden
+        .team__block.tablet-hidden
+          .team__target.target  
+            .target__mark 
+            .target__text 
+              h3 Наталья Счастливая
+              p Ведущий специалист отдела маркетинга
+
+          figure.team__img-wrap 
+            picture 
+              //- source(media="(max-width: 600px)" srcset="/img/case-top-600w.jpg")
+              source(srcset="/img/team.png 1x, /img/team@2x.png 2x")
+              img(class="team__img" src="/img/team.png" alt="ресторан Сказка”" width="1100" height="645" loading="lazy")
+
+      .team__block-slider.tablet-visibility.team-slider.container
+        ul.team-slider__list  
+          -n=0
+          while n<3
+            -n++
+            li.team-slider__item  
+              figure.team-slider__img-wrap  
+                +img(`man-t`, `jpg`, `сотрудник`, `team-slider__img`, `600`, `700`)
+
+              .team-slider__text 
+                p.team-slider__name Петр Внимательный
+                p.team-slider__job Сотрудник службы безопасности
+
+
+    
 
   section.result
     .result__inner.container 
@@ -129,7 +156,7 @@ block content
           -n++
           li.result__item
             a.result__link.glightbox(href="https://youtu.be/AkoKHxKXkAE" data-gallery=`gallery-${n}`)
-                    +img-retina(`result`, `jpg`, `Наши заказчики`, `result__img`, `292`, `520`)
+              +img-retina(`result`, `jpg`, `Наши заказчики`, `result__img`, `292`, `520`)
 
 
   section.faq 
@@ -154,7 +181,7 @@ block content
             -n++
             .accordion__item.accordion(data-accordion) 
               .accordion__control(data-control) 
-                h3 Можете ли вы произвести партию <br>по моему образцу?
+                h3 Можете ли вы произвести партию по моему образцу?
               .accordion__content(data-content) 
                 p Да, это возможно. Мы строим лекала как по эталону-образцу, так и по фото, делаем градацию размерной сетки по вашим требованиям и запускаем партию в производство.
 
@@ -170,7 +197,7 @@ block content
         
         .contacts__phone 
           p.contacts__term.size-3 Адрес:
-          p.contacts__data.size-3 ул. Тимирязева, 29, Иркутск (этаж 1-2)
+          p.contacts__data.size-3 ул. Тимирязева, 29, Иркутск
         
         a.contacts__link.btn-1(href="#modal-request" rel="modal:open") ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
       

@@ -4,6 +4,11 @@
   padding-top: 100px
   background-color: #F9FAFC
 
+  +mw(600)
+    margin-bottom: 50px
+    padding-bottom: 50px
+    padding-top: 50px
+
   &__title
     margin-bottom: 20px
 
@@ -11,8 +16,14 @@
     color: #6D6D6D
     margin-bottom: 80px
 
+    +mw(768)
+      margin-bottom: 50px
+
   &__list
     margin-bottom: 100px
+
+    +mw(768)
+      margin-bottom: 50px
 
   &__item
     display: flex
@@ -69,16 +80,15 @@
 
   &__title-link
     margin-bottom: 20px
+    display: block
+    +font(Forum)
+    font-weight: normal
+    font-size: rem(32)
+    text-transform: uppercase
+    color: #353535
 
-    & h3
-      +font(Forum)
-      font-weight: normal
-      font-size: rem(32)
-      text-transform: uppercase
-      color: #353535
-
-      +mw(768)
-        font-size: rem(26)
+    +mw(768)
+      font-size: rem(26)
 
   &__link
     display: flex

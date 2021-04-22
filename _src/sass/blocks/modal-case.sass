@@ -1,0 +1,220 @@
+.modal-case
+
+  &__inner
+
+    +mw(768)
+      padding-top: 70px
+
+    h2
+      +font(Forum)
+      font-size: rem(50)
+      margin-bottom: 60px
+      max-width: 680px
+      text-transform: uppercase
+      font-weight: 400
+
+      +mw(600)
+        font-size: rem(30)
+
+  &__top
+    margin-bottom: 70px
+
+  &__middle
+    display: flex
+    justify-content: space-between
+    margin-bottom: 90px
+
+    +mw(768)
+      flex-direction: column
+
+  &__bottom
+    margin-bottom: 100px
+
+.modal
+
+.container
+
+.title
+
+.case-top
+  position: relative
+
+  &__item
+
+    +mw(600)
+
+  &__img-wrap
+
+  &__counter
+    position: absolute
+    left: 50px
+    top: 30px
+    z-index: 1
+
+    +mw(768)
+      left: 40px
+      top: 15px
+
+  &__counter-text
+    +font(Forum)
+    color: #fff
+    font-size: rem(44)
+    font-style: italic
+
+    +mw(768)
+      font-size: rem(30)
+
+  &__list
+
+    & .slick-arrow
+      width: 70px
+      height: 70px
+      background-image: url(/img/svg/arr-case.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 43px 15px
+      background-color: #fff
+      border: 1px solid #D6B38F
+      border-radius: 50%
+      font-size: 0
+      bottom: 130px
+      position: absolute
+      cursor: pointer
+
+      +mw(768)
+        width: 40px
+        height: 40px
+        background-size: 23px 12px
+        bottom: auto
+        top: 50%
+        transform: translateY(-50%)
+
+    & .slick-prev
+      right: 150px
+      z-index: 1
+      transform: rotate(180deg)
+      transition: 0.5s
+
+      +mw(768)
+        right: auto
+        left: 10px
+        transform: rotate(180deg) translateY(50%)
+
+    & .slick-next
+      right: 70px
+
+      +mw(768)
+        right: 10px
+
+    & .slick-disabled
+      opacity: 0
+      pointer-events: none
+
+  &__item
+
+.case-middle
+
+  &__col
+    flex-grow: 1
+    max-width: 590px
+
+    +mw(768)
+      max-width: none
+
+    & + div
+      margin-left: 15px
+
+      +mw(768)
+        margin-left: 0
+        margin-top: 30px
+
+    h3
+      margin-bottom: 32px
+      +font(Forum)
+      text-transform: uppercase
+      color: #333333
+      font-size: rem(32)
+      font-weight: 400
+
+    p
+      font-size: rem(18)
+      color: #6D6D6D
+      margin-bottom: 100px
+
+      +mw(768)
+        margin-bottom: 50px
+
+    figure
+      width: 100%
+      padding-top: 106%
+      position: relative
+
+    img
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+
+.case-bottom
+  display: flex
+  align-items: center
+
+  +mw(768)
+    flex-direction: column-reverse
+
+  &__link
+    display: block
+    width: 292px
+    flex-shrink: 0
+    margin-right: 100px
+    position: relative
+
+    &::after
+      position: absolute
+      content: ""
+      width: 92px
+      height: 92px
+      background-color: #fff
+      border-radius: 50%
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      background-image: url(/img/svg/you.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 20px 23px
+
+    +mw(1000)
+      margin-right: 30px
+
+    +mw(768)
+      margin-right: 0
+      margin-top: 30px
+
+  & h3
+    color: #333333
+    +font(Forum)
+    font-size: rem(32)
+    margin-bottom: 30px
+    font-weight: 400
+
+  & p
+    font-size: rem(18)
+    color: #6D6D6D
+    max-width: 575px
+
+    +mw(768)
+      max-width: none
+
+  &__img
+    border-radius: 10px
+    display: block
+
+  &__content
+
+.glightbox
+
+.result
+
+  &__img

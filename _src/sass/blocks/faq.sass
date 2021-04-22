@@ -1,6 +1,9 @@
 .faq
   margin-bottom: 140px
 
+  +mw(768)
+    margin-bottom: 50px
+
   &__inner
     display: flex
     justify-content: space-between
@@ -18,6 +21,7 @@
     +mw(768)
       flex-direction: column-reverse
       border-radius: 0
+      padding-top: 50px
 
   &__col-left
     width: 305px
@@ -124,8 +128,6 @@
       +mw(768)
         padding-left: 15px
         padding-right: 15px
-        font-size: 18px
-        border-radius: 10px
 
       &::after
         width: 40px
@@ -149,6 +151,12 @@
       & h3
         color: #353535
         font-weight: 400
+
+        +mw(768)
+          font-size: 18px
+          border-radius: 10px
+          line-height: 1.4
+          // text-transform: lowercase
 
     & [data-control], [data-content] > p
       padding-left: 40px

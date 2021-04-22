@@ -86,11 +86,11 @@ $(function () {
   $(`#phone`).inputmask({ "mask": "+7 (999) 999-99-99" });
 
   // GLightbox
-  const lightbox = GLightbox({
-    touchNavigation: true,
-    // loop: true,
-    autoplayVideos: true
-  });
+  // const lightbox = GLightbox({
+  //   touchNavigation: true,
+  //   // loop: true,
+  //   autoplayVideos: true
+  // });
 
 
   // confidence slider
@@ -102,69 +102,111 @@ $(function () {
     });
   }
 
+  // lightbox modal-case
+  const case_bottomLightbox = GLightbox({
+    selector: `.case-bottom__link`,
+    // draggable: false
+  });
+
+  // lighybox customers__list
+  const customersLightbox = GLightbox({
+    selector: `.glight-box__link`,
+    // draggable: false
+  });
+
+  // lightbox result__list
+  const resultLightbox = GLightbox({
+    selector: `.result__link`,
+    // draggable: false
+  });
+
   // result slider
   $('.result__list').slick({
     infinite: true,
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 2,
+    draggable: false,
     responsive: [
       {
         breakpoint: 1000,
         settings: {
           slidesToShow: 3,
         }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
     ]
+  });
+
+  // team-slider__list slider
+
+  if ($(window).width() < 768) {
+    $(`.team-slider__list`).slick({
+      infinite: true,
+      speed: 600,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    });
+  }
 
 
+
+  // slider modal-case
+  const status = $(`.case-top__counter-text`)
+  let modalCaseSlick = $('.case-top__list');
+
+  modalCaseSlick.on('init reInit afterChange', function (evt, slick, currentSlide, nextSlide) {
+    const i = (currentSlide ? currentSlide : 0) + 1;
+    status.text(`${i}/${slick.slideCount}`);
+  })
+
+  $(`.modal-case__link-open`).on(`click`, (e) => {
+    e.preventDefault();
+    const modalId = $(e.target).attr('class').split(` `).pop()
+    $(`#${modalId}`).modal();
+
+
+    modalCaseSlick.slick({
+      infinite: false,
+      speed: 600,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    });
+
+    $(`.modal-case a.close-modal`).on(`click`, () => {
+      modalCaseSlick.slick('unslick')
+    });
   });
 
 
+  // team target
+  $(`.target__mark`).on(`mouseover`, (e) => {
+    $(e.target).next().addClass(`target__text--visible`);
+  })
+
+  $(`.target__mark`).on(`mouseout`, (e) => {
+    $(e.target).next().removeClass(`target__text--visible`);
+  })
 
 
-
-
-
-  // $('.result__list').on('swipe', function (event, slick, direction) {
-  //   console.log(direction);
-  //   // left
-  // });
-
-  // $('.result__list').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-  // console.log(nextSlide);
-  // });
-  // $('.result__list').on('swipe', function (event, slick, currentSlide, nextSlide) {
-  //   // $(`.result__link`).addClass(`result__link--eventnone`)
-  //   console.log(`fdfgd`)
-  // });
-  // $(`.result__link`).on(`mousedown`, (e) => {
-  //   $(`.result__link`).addClass(`result__link--eventnone`)
-  //   // console.log(e.target)
-  // })
-
-  // $(`.result__link`).on(`click`, (e) => {
-  //   $(`.result__link`).removeClass(`result__link--eventnone`)
-  //   // console.log(e.target)
-  // })
-
+  //  accordion__item
   $('.accordion__item').accordion({
     "transitionSpeed": 400
-
   });
 
   // map
-
   let myMap;
   const init = () => {
-
     myMap = new ymaps.Map('map', {
-
       center: [52.2825, 104.296372],
       zoom: 17,
       controls: []
-    }, {
-      searchControlProvider: 'yandex#search'
     });
 
     const myPlacemark = new ymaps.Placemark([52.2825, 104.296372], {}, {
@@ -173,6 +215,10 @@ $(function () {
       iconImageSize: [48, 60],
       iconImageOffset: [, -50]
     });
+
+    if ($(window).width() < 768) {
+      myMap.behaviors.disable('drag');
+    }
 
     myMap.geoObjects.add(myPlacemark);
     myMap.behaviors.disable('scrollZoom');

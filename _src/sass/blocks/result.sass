@@ -1,21 +1,37 @@
 .result
   margin-bottom: 100px
 
-  &__inner
+  +mw(768)
+    margin-bottom: 50px
 
   &__top
     display: flex
     align-items: flex-end
     margin-bottom: 48px
 
+    +mw(768)
+      flex-direction: column
+      align-items: flex-start
+
   &__title
+
+    +mw(768)
+      margin-bottom: 30px
 
   &__text
     margin-left: 10%
     max-width: 422px
     color: #6D6D6D
 
+    +mw(768)
+      margin-left: 0
+
   &__list
+
+    +mw(600)
+      max-width: 292px
+      margin-left: auto
+      margin-right: auto
 
     & .slick-arrow
       position: absolute
@@ -32,12 +48,29 @@
       cursor: pointer
       top: -150px
 
+      +mw(768)
+        top: 50%
+        transform: translateY(-50%)
+        width: 30px
+        height: 30px
+        background-size: 20px 8px
+
     & .slick-next
       right: 0
       transform: rotate(180deg)
 
+      +mw(768)
+        transform: rotate(180deg) translateY(50%)
+        z-index: 1
+        right: 10px
+
     & .slick-prev
       right: 80px
+      z-index: 1
+
+      +mw(768)
+        left: 10px
+        right: auto
 
   &__item
     cursor: pointer

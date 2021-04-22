@@ -29,24 +29,27 @@
       display: block
 
     & .slick-arrow
-      background-image: url(/img/svg/arr-slider.svg)
+      background-image: url(/img/svg/arr-result.svg)
       background-repeat: no-repeat
       background-size: contain
       background-position: center center
-      width: 20px
-      height: 40px
+      width: 30px
+      height: 30px
       font-size: 0
       top: 50%
       position: absolute
       transform: translateY(-50%)
       background-color: transparent
+      border-radius: 50%
+      border: 1px solid #E5D5C5
 
     & .slick-next
-      right: 0
+      right: 10px
+      transform: translateY(-50%) rotate(180deg)
 
     & .slick-prev
       z-index: 1
-      transform: translateY(-50%) rotate(180deg)
+      left: 10px
 
   &__item
     width: 100%

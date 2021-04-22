@@ -11,8 +11,27 @@
     background-size: contain
     background-position: 67% center
 
+    +mw(1000)
+      flex-direction: column
+
+    +mw(768)
+      padding-top: 0
+      background-image: none
+
+  &__contacts
+    display: flex
+    align-items: center
+
+    +mw(1000)
+      margin-bottom: 30px
+      width: 100%
+      justify-content: center
+
   &__phone
     margin-right: 40px
+
+    +mw(768)
+      display: none
 
   &__social
 
@@ -20,16 +39,35 @@
       width: 30px
       height: 30px
 
+    +mw(768)
+
     & .socials__item
 
       & + li
         margin-left: 10px
 
+        +mw(768)
+          margin-left: 20px
+
   &__link
     margin-left: 40px
 
+    +mw(1000)
+      margin-bottom: 30px
+      margin-left: 0
+
+    +mw(768)
+      width: 100%
+      text-align: center
+
   &__content
     margin-left: auto
+
+    +mw(1000)
+      margin-left: 0
+
+    +mw(768)
+      align-self: flex-start
 
   &__copy
     margin-bottom: 10px
