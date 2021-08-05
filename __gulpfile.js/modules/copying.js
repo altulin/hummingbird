@@ -1,8 +1,8 @@
-
+const path = require(`${__dirname}/variables.js`).path;
 
 module.exports.getCopying = () => {
   return src([ // Выбираем нужные файлы
-    path.src.css,
+    path.src.srcCssFile,
     path.src.fonts,
     path.src.min_js,
     path.src.js,
