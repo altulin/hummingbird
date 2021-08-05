@@ -31,23 +31,34 @@ module.exports.plugunsCss = new Map([
 
 module.exports.path = {
   dist: {
-
-
+    cssFile: `${srcFolder}/css/style.css`,
+    cssMinFile: `${srcFolder}/css/style.min.css`,
+    fontsFiles: `${srcFolder}/fonts/*.{woff,woff2}`,
+    jsFile: `${srcFolder}/js/script.js`,
+    jsMinFile: `${srcFolder}/js/script.min.js`,
+    images: `${srcFolder}/img/**/*`,
+    htmlFiles: `${srcFolder}/*.html`,
+    icoFiles: `${srcFolder}/*.ico`,
+    favFiles: `${srcFolder}/fav/*`
   },
   src: {
     srcJsFile: `script.js`,
     srcJsMinFile: `script.min.js`,
-    srcJsFolder: `${srcFolder}/js`,
+    srcJsFolder: `${srcFolder} /js`,
     srcCssFile: `style.css`,
     srcCssFolder: `${srcFolder}/css`,
     srcRasterImg: `${srcFolder}/_img/*.{png,jpg}`,
+    srcWebpImg: `${srcFolder}/_img/webp/*.{png,jpg}`,
+    srcWebpImgFolder: `${srcFolder}/img/webp/`,
     srcImages: `${srcFolder}/img/**/*`,
     srcImg: `${srcFolder}/img`,
     srcVectorImg: `${srcFolder}/_img/svg/*.svg`,
     srcImagesSvg: `${srcFolder}/img/svg/*.svg`,
     srcImgSvg: `${srcFolder}/img/svg`,
     srcSpriteFolder: `${srcFolder}/img/sprite.svg`,
-    srcSpriteFiles: `${srcFolder}/_img/sprite/*.svg`
+    srcSpriteFiles: `${srcFolder}/_img/sprite/*.svg`,
+    pug: `${srcFolder}/pug/pages/*.pug`
   },
-  distFolder
+  distFolder,
+  srcFolder
 }

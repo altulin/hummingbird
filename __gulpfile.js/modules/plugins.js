@@ -13,5 +13,8 @@ module.exports.plaginsObject = {
   cheerio: require('gulp-cheerio'),
   replace: require('gulp-replace'),
   svgstore: require('gulp-svgstore'),
-  rename: require("gulp-rename")
+  rename: require("gulp-rename"),
+  pug: require('gulp-pug'),
+  prettify: require('gulp-html-prettify'),
+  webp: require('gulp-webp')
 }

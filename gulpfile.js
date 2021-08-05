@@ -276,8 +276,6 @@ function transformPug() {
 }
 
 function htmlprettify() {
-
-
   return src(path.src.html)
     .pipe(prettify({ indent_char: '', indent_size: 2 }))
     .pipe(dest(`${sourceFolder}`))
